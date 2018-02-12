@@ -9,7 +9,10 @@ import replace from "rollup-plugin-replace";
 
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
-const production = !process.env.ROLLUP_WATCH;
+
+let production = function(){
+    return !process.env.ROLLUP_WATCH;
+}
 
 /*
 const babel_preset = {
@@ -43,15 +46,13 @@ export default {
             "RMFBUILDTIME": new Date().toISOString()
         }),
         resolve({
-            module: true,       // Default: true
-            jsnext: true,       // Default: false
-            main: true,         // Default: true
-            browser: true,      // Default: false
-            extensions: [
-                '.js',
-                '.json'],           // Default: ['.js']
-            preferBuiltins: true,   // Default: true
-            modulesOnly: false,     // Default: false
+            module: true, // Default: true
+            jsnext: true, // Default: false
+            main: true, // Default: true
+            browser: true, // Default: false
+            extensions: [ '.js', '.json'], // Default: ['.js']
+            preferBuiltins: true, // Default: true
+            modulesOnly: false, // Default: false
             customResolveOptions: {}
         }), // tells Rollup how to find date-fns in node_modules
         commonjs(), // converts date-fns to ES modules
