@@ -26,7 +26,7 @@ const babel_preset = {
 };
 */
 export default {
-    input: 'src/user-trail.js',
+    input: 'src/main.js',
     name: "measurementFramework",
     strict: false,
     sourcemap: false,
@@ -40,6 +40,7 @@ export default {
         window: 'window',
         document: 'document'
     },
+    external: ['window', 'document'],
     plugins: [
         json(),
         replace({
