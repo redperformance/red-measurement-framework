@@ -11,7 +11,10 @@ import replace from "rollup-plugin-replace";
 // `npm run dev` -> `production` is false
 
 let production = function(){
-    return !process.env.ROLLUP_WATCH;
+    let prod = !process.env.ROLLUP_WATCH;
+    console.log(prod);
+    return prod
+
 }
 
 /*
@@ -26,20 +29,21 @@ const babel_preset = {
 };
 */
 export default {
-    input: 'src/main.js',
-    name: "measurementFramework",
+    input: 'src/measurement-framework.js',
     strict: false,
     sourcemap: false,
     output: {
-        file: 'public/bundle.js',
+        name: "measurementFramework",
+        file: 'public/measurement-framework.js',
         format: 'iife', // immediately-invoked function expression — suitable for <script> tags
-        sourcemap: false
+        sourcemap: false,
+        globals: {
+            window: 'window',
+            document: 'document'
+        },
     },
     treeshake: true,
-    globals: {
-        window: 'window',
-        document: 'document'
-    },
+
     external: ['window', 'document'],
     plugins: [
         json(),
@@ -64,7 +68,7 @@ export default {
                 '*.json'
             ]
         }),
-        production && uglify({
+        production() && uglify({
             toplevel: true,
             ie8: true,
             sourceMap: false,
