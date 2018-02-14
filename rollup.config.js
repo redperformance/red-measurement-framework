@@ -1,18 +1,19 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
-import babel from "rollup-plugin-babel";
-import uglify from "rollup-plugin-uglify";
-import {minify} from "uglify-es";
-import json from "rollup-plugin-json";
-import eslint from "rollup-plugin-eslint";
-import replace from "rollup-plugin-replace";
-
+import resolve from "rollup-plugin-node-resolve"
+import commonjs from "rollup-plugin-commonjs"
+import babel from "rollup-plugin-babel"
+import uglify from "rollup-plugin-uglify"
+import {minify} from "uglify-es"
+import json from "rollup-plugin-json"
+import eslint from "rollup-plugin-eslint"
+import replace from "rollup-plugin-replace"
+import sizes from "rollup-plugin-sizes"
+import filesize from "rollup-plugin-filesize"
 // `npm run build` -> `production` is true
 // `npm run dev` -> `production` is false
 
-let production = function(){
-    let prod = !process.env.ROLLUP_WATCH;
-    console.log(prod);
+let production = function () {
+    let prod = !process.env.ROLLUP_WATCH
+    console.log(prod)
     return prod
 
 }
@@ -30,7 +31,6 @@ const babel_preset = {
 */
 export default {
     input: 'src/measurement-framework.js',
-    strict: false,
     sourcemap: false,
     output: {
         name: "measurementFramework",
@@ -40,10 +40,9 @@ export default {
         globals: {
             window: 'window',
             document: 'document'
-        },
+        }
     },
     treeshake: true,
-
     external: ['window', 'document'],
     plugins: [
         json(),
@@ -55,7 +54,7 @@ export default {
             jsnext: true, // Default: false
             main: true, // Default: true
             browser: true, // Default: false
-            extensions: [ '.js', '.json'], // Default: ['.js']
+            extensions: ['.js', '.json'], // Default: ['.js']
             preferBuiltins: true, // Default: true
             modulesOnly: false, // Default: false
             customResolveOptions: {}
@@ -66,15 +65,20 @@ export default {
             exclude: [
                 'node_modules/**',
                 '*.json'
-            ]
+            ],
+            plugins: ["lodash"]
         }),
         production() && uglify({
             toplevel: true,
             ie8: true,
             sourceMap: false,
+            mangle: true,
             compress: {
-                drop_console: true
-            },
-        }, minify) // minify, but only in production
+                toplevel: true
+                //reduce_vars: false
+            }
+        }, minify), // minify, but only in production
+        sizes({}),
+        filesize()
     ]
-};
+}

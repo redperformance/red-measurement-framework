@@ -13,8 +13,8 @@
       "unix"
     ],
     "semi": [
-      "error",
-      "always"
+      "warn",
+      "never"
     ],
     "no-console": [
       "error",
