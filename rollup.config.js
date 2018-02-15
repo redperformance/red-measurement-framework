@@ -38,7 +38,7 @@ const babel_preset = {
         }
 */
 export default {
-    input: 'src/ajax-complete-jquery.js',
+    input: 'src/measurement-framework.js',
     sourcemap: false,
     output: {
         name: "measurementFramework",
