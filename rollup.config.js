@@ -28,9 +28,17 @@ const babel_preset = {
         }]
     ]
 };
+
+{
+            exclude: [
+                'node_modules/**',
+                '*.json'
+            ],
+            plugins: ["lodash"]
+        }
 */
 export default {
-    input: 'src/measurement-framework.js',
+    input: 'src/ajax-complete-jquery.js',
     sourcemap: false,
     output: {
         name: "measurementFramework",

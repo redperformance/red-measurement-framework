@@ -1,7 +1,13 @@
-# Measurement Framework
+Measurement Framework
+=======
+[![NPM Version][npm-image]][npm-url]
+![Stability][stability-image]
+
 Collection of Javascript code to implement a browser based measurement
 system for websites. Its created of several functions that integrate
 with Google Tag Manager, Google Analytics and jQuery.
+
+
 
 ## Install
 
@@ -35,4 +41,9 @@ methods form classes. This is why the measurement framework i built on
 running several functions instead of importing a class to hold them.
 Internally these uses the MeasurementFramework class to hold state and
 to orcestrate between classes. This makes the package nice and tight.
+
+[npm-image]: https://img.shields.io/npm/v/measurement-framework.svg
+[npm-url]: https://npmjs.org/package/measurement-framework
+[stability-image]: http://badges.github.io/stability-badges/dist/experimental.svg
+[stability-url]: http://github.com/badges/stability-badges
 
