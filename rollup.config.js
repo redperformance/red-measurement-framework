@@ -74,7 +74,7 @@ export default {
                 'node_modules/**',
                 '*.json'
             ],
-            plugins: ["lodash"]
+            plugins: []
         }),
         production() && uglify({
             toplevel: true,
