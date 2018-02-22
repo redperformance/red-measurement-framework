@@ -8,41 +8,17 @@ import eslint from "rollup-plugin-eslint"
 import replace from "rollup-plugin-replace"
 import sizes from "rollup-plugin-sizes"
 import filesize from "rollup-plugin-filesize"
-// `npm run build` -> `production` is true
-// `npm run dev` -> `production` is false
 
 let production = function () {
-    let prod = !process.env.ROLLUP_WATCH
-    console.log(prod)
-    return prod
-
+    return !process.env.ROLLUP_WATCH
 }
 
-/*
-const babel_preset = {
-    presets: [
-        ["@babel/preset-env", {
-            "targets": {
-                "browsers": ["> 0.5%"]
-            }
-        }]
-    ]
-};
-
-{
-            exclude: [
-                'node_modules/**',
-                '*.json'
-            ],
-            plugins: ["lodash"]
-        }
-*/
 export default {
     input: 'src/measurement-framework.js',
     sourcemap: false,
     output: {
         name: "measurementFramework",
-        file: 'public/measurement-framework.js',
+        file: 'dist/measurement-framework.js',
         format: 'iife', // immediately-invoked function expression — suitable for <script> tags
         sourcemap: false,
         globals: {
@@ -68,10 +44,10 @@ export default {
             customResolveOptions: {}
         }), // tells Rollup how to find date-fns in node_modules
         commonjs(), // converts date-fns to ES modules
-        eslint({}),
+        production() && eslint({}),
         babel({
             exclude: [
-                'node_modules/**',
+                //'node_modules/**',
                 '*.json'
             ],
             plugins: []
