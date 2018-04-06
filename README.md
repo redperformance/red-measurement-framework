@@ -69,8 +69,8 @@ to orchestrate between classes. This makes the package nice and tight.
 [stability-url]: https://github.com/mijohansen/measurement-framework
 
 
-## Collaborating with external developers
+## Brief outline
 As can be seen from the measurement-framework.js script, its functionality relies heavily on an underlying strict and consistent
-naming convention. This allows us to accumulate (n) number of (x,y or z) instances.
-Based on the summation of each instance, it enables us to place consumers in a given funnel-stage.
-The funnel-stages are "Interested, Considering, Store Visit Intent and Ecommerce Intent"
+naming convention. This allows for the accumulation of (n) number of (x,y or z) instances.
+Based on the summation of each instance, it enables the placement of consumers in a given funnel-stage.
+Current funnel-stages are "Interested, Considering, Store Visit Intent and Ecommerce Intent"
