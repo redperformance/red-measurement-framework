@@ -1,64 +1,69 @@
-Measurement Framework
+RED Measurement Framework
 =======
 [![NPM Version][npm-image]][npm-url]
 ![Stability][stability-image]
 
-Collection of Javascript code to implement a browser based measurement
-system for websites. Its created of several functions that integrate
-with Google Tag Manager, Google Analytics and jQuery.
+## Outline
+
+The RED Measurement Framework (RMF) is a collection of javascript code that is to be implemented in a browser based measurement system for tracking of events on websites. 
+
+It´s composed of several functions that integrate
+with:
+
+* Google Tag Manager (GTM) 
+* Google Analytics (GA)
+* jQuery.
+
+## Functional resume
+
+As can be seen from the /dist/measurement-framework.js file, a structured set of operations coupled with the use of a consistent naming convention ensures desired functionality. 
+
+Basically outlined, the above allows for the placement of consumers in segments by utilizing cookie based consumer data and accumulating (n) number of (x,y or z) events. As such, the mapping of web based consumer behavior to create consumer segments. 
+
+Exemplary segments could be:
+
+* Aware
+* Interested
+* Considering 
+* Store Visit Intent 
+* Ecommerce Intent
+* Ecommerce Purchase
+
+## The backbone of RMF
+The following files can be found in the lib folder and are the backbone of the RMF. The below list presents these files and explains their functional intent.
+
+* **ajaxComplete.js (jQuery)**
+	* A set of operations that configures the tracking of asynchronous javascript and xml (AJAX).   
+		 
+* **clientIdSetter.js**
+	* An operation that fetches the client ID (a numeric value that will be added to every call towards GA).
+		 
+* **contentEngaged.js**
+	* A set of operations to measure consumer engagement based on i.e. clicks, movement, scrolls etc. A predetermined threshold (usually between 15-20 seconds of activty) defines when a consumer is considered engaged in page content.
+
+* **customTask.js**
+	* A set of operations that utilizes the recently released task API from Universal Analytics, which lets you modify a dispathed payload fired to GA. Enabling the sending of i.e. client ID to GA.  
+
+* **domReady.js**
+	* A set of operations that allows document object model (DOM) ready events to be fired to GA via callback funtionality. (**needs cofirmation from Asim**)
+
+* **klarnaCheckout.js**
+	* An operation that lets you track stages in klarnacheckouts, i.e. shipping address changed, order total changed and cannot complete order.
+
+* **sendHitTask.js**
+
+
+* **userTrail.js**
+	* A set of operations that relies on the use of cookies to store consumer web based actions leading to segmentation of consumers.
 
 
 
-## Install
-
-
-
-## Functions
-* AjaxComplete (jQuery)
-* Client ID Setter for Google Analytics
-* Content Engagement
-* Custom Task in GA
-* DomReady
-* KlarnaCheckout Hooks
-* Kudakeru (Tracking code for the
-* Iframe to Parent Messages
-* SendHitTask for GA
-* User Trail
-
-
-## Usage
-
-
-### User Trail
-It uses a cookie to store a users action on a web-page and lets you map
-those actions to a particular state in the user journey using a function.
-
-### Content Engagement
-The module is created to measure users based on "engaged" time and not actual
-time. Engaged time is defined as the time a user clicks, scrolls, moving the mouse
-or using the keyboard. Its heavily inspired by 
-[Simo Ahava's script from 2016](https://www.simoahava.com/analytics/track-content-engagement-via-gtm/) but can
-trigger multiple events, should be a little bit more precise and consistent.
-
-```javascript
-import MeasurementFramework, {contentEngaged} from "measurement-framework"
-
-let eventName = "Content Viewed"
-let secondsToTrigger = 12 
-
-contentEngaged(eventName, secondsToTrigger, function (dataLayerPush) {
-    dataLayerPush.debugText = "Target time for Content Viewed is 12 seconds."
-})
-
-MeasurementFramework.init()
-```
-
-The script could also be used to measure Real Time on site. 
+## Installation 
 
 
 ## Building with rollup
 Rollup and other javascript compilers doesn't support removing unused
-methods form classes. This is why the measurement framework is built on
+methods form classes. This is why the measurement framework is https://cid-26cb80f405dfaf84.users.storage.live.com/users/0x26cb80f405dfaf84/myprofile/expressionprofile/profilephoto:UserTileStatic,UserTileSmall/MeControlMediumUserTile?ck=1&ex=24&fofoff=1built on
 running several functions instead of importing a class to hold them.
 Internally, these use the MeasurementFramework class to hold state and
 to orchestrate between classes. This makes the package nice and tight.
@@ -67,10 +72,3 @@ to orchestrate between classes. This makes the package nice and tight.
 [npm-url]: https://npmjs.org/package/measurement-framework
 [stability-image]: https://img.shields.io/badge/stability-experimental-orange.svg
 [stability-url]: https://github.com/mijohansen/measurement-framework
-
-
-## Brief functional outline
-As can be seen from the measurement-framework.js script, its functionality relies heavily on an underlying strict and consistent
-naming convention. This allows for the accumulation of (n) number of (x,y or z) instances.
-Based on the summation of each instance, it enables the placement of consumers in a given funnel-stage.
-Current funnel-stages are "Interested, Considering, Store Visit Intent and Ecommerce Intent"
