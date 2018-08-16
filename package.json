@@ -1,6 +1,6 @@
 {
   "name": "measurement-framework",
-  "version": "0.1.7",
+  "version": "0.1.12",
   "description": "Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
   "main": "index.js",
   "module": "index.js",
@@ -35,7 +35,7 @@
     "type": "git",
     "url": "git+https://github.com/mijohansen/measurement-framework.git"
   },
-  "author": "Michael Johansen <michael.johansen@gmail.com>",
+  "author": "RED Performance <www.redperformance.no>",
   "licenses": [
     {
       "type": "Apache-2.0",
