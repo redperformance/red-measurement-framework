@@ -12,6 +12,9 @@ It's intentionally meant to integrate and work with the following:
 * Google Data Studio (GDS)
 * jQuery
 
+## Integration visualised
+![alt text](img/flowchart.png "Logo Title Text 1")
+
 ## Functional resume
 
 As can be seen from the /dist/measurement-framework.js file, a structured set of operations coupled with the use of a standardized and generic naming convention ensures desired functionality. 
