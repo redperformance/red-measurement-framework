@@ -65,9 +65,26 @@ In GA it is important to follow best practice when setting up accounts, as this 
 
 [GA Audit Checklist] (https://www.distilled.net/resources/google-analytics-audit-checklist/)
 
-Having successfully migrated the RMF data in GA it's recommended to use GDS to visualise the collected data. A link is provided below in which an exemplary GDS template is presented.
+Having successfully migrated the RMF data in GA it's recommended to use GDS to visualise the collected data. A link is provided below in which a GDS template is shared in a view link. 
 
-[GDS Template] ()    
+Currently the below link is NOT including any data in its charts, albeit a future commit will follow, in which the link will be updated to include data.
+
+[GDS Template] (https://datastudio.google.com/open/1UyxbaJ8fWvwnE5llwyv2Ad1NeJvlZx5C)
+
+The following screenshots show how data sources are added to or removed from the GDS report.  
+
+*Two Screenshots showing how data sources are managed.*
+![alt text](img/manage_data.png "Logo Title Text 1")
+![alt text](img/manag_data.png "Logo Title Text 1")
+
+*Two screenshots showing how to add data sources. The first screenshot shows the first step in adding data to the GDS report. Choosing a data source, plain and simple, albeit to configure GDS to work optimally, you must either choose a dimension or add another "temporary" data source, then delete it, as shown in the second screenshot, because then you can save your added data source.*
+![alt text](img/config_data.png "Logo Title Text 1")
+![alt text](img/add_data.png "Logo Title Text 1")
+
+*Two screenshots, the first showing the last step in adding data sources and the second, the two data sources used at RED Dentsu X and the edit and remove options.*
+
+![alt text](img/last step.png "Logo Title Text 1")
+![alt text](img/data_sources.png "Logo Title Text 1")
    
 ## Installation 
 **Hjelp fra Asim Trenges her**
