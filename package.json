@@ -1,15 +1,17 @@
 {
-  "name": "measurement-framework",
+  "name": "RED measurement framework",
   "version": "0.1.12",
   "description": "Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
   "main": "index.js",
   "module": "index.js",
   "dependencies": {
     "alphanumeric": "latest",
+    "i": "^0.3.6",
     "is-json": "latest",
     "js-cookie": "latest",
     "jsonp-es6": "latest",
-    "lodash-es": "latest"
+    "lodash-es": "latest",
+    "measurement-framework": "^0.1.12"
   },
   "devDependencies": {
     "babel-core": "latest",
@@ -29,11 +31,11 @@
     "uglify-es": "^3.3.10"
   },
   "scripts": {
-    "test": "./node_modules/.bin/ava"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:redperformance/red-measurement-framework.git"
+    "url": "git+ssh://git@github.com/redperformance/red-measurement-framework.git"
   },
   "author": "RED Performance <www.redperformance.no>",
   "licenses": [
@@ -53,5 +55,10 @@
   },
   "bin": {
     "mfreg": "bin/register.js"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "license": "ISC"
 }

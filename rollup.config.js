@@ -4,7 +4,6 @@ import babel from "rollup-plugin-babel"
 import uglify from "rollup-plugin-uglify"
 import {minify} from "uglify-es"
 import json from "rollup-plugin-json"
-import eslint from "rollup-plugin-eslint"
 import replace from "rollup-plugin-replace"
 import sizes from "rollup-plugin-sizes"
 import filesize from "rollup-plugin-filesize"
@@ -44,7 +43,7 @@ export default {
             customResolveOptions: {}
         }), // tells Rollup how to find date-fns in node_modules
         commonjs(), // converts date-fns to ES modules
-        production() && eslint({}),
+        production(),
         babel({
             exclude: [
                 //'node_modules/**',
