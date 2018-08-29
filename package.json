@@ -1,7 +1,7 @@
 {
-  "name": "RED measurement framework",
-  "version": "0.1.12",
-  "description": "Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
+  "name": "measurement-framework",
+  "version": "0.1.13",
+  "description": "TEST ROLLBACK: Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
   "main": "index.js",
   "module": "index.js",
   "dependencies": {
@@ -14,10 +14,8 @@
     "measurement-framework": "^0.1.12"
   },
   "devDependencies": {
-    "babel-core": "latest",
-    "babel-preset-env": "latest",
-    "browser-env": "^3.2.5",
-    "rollup-plugin-babel": "latest",
+    "rollup": "^0.56.5",
+    "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-esformatter": "^0.5.0",
     "rollup-plugin-eslint": "^4.0.0",
