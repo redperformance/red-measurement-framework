@@ -1,21 +1,21 @@
 {
-  "name": "measurement-framework",
-  "version": "0.1.13",
-  "description": "TEST ROLLBACK: Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
+  "name": "measurement-frameworks",
+  "version": "0.1.15",
+  "description": "Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
   "main": "index.js",
   "module": "index.js",
   "dependencies": {
     "alphanumeric": "latest",
-    "i": "^0.3.6",
     "is-json": "latest",
     "js-cookie": "latest",
     "jsonp-es6": "latest",
-    "lodash-es": "latest",
-    "measurement-framework": "^0.1.13"
+    "lodash-es": "latest"
   },
   "devDependencies": {
-    "rollup": "^0.56.5",
-    "rollup-plugin-buble": "^0.19.2",
+    "babel-core": "latest",
+    "babel-preset-env": "latest",
+    "browser-env": "^3.2.5",
+    "rollup-plugin-babel": "latest",
     "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-esformatter": "^0.5.0",
     "rollup-plugin-eslint": "^4.0.0",
@@ -29,13 +29,13 @@
     "uglify-es": "^3.3.10"
   },
   "scripts": {
-    "test": "ava"
+    "test": "./node_modules/.bin/ava"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/redperformance/red-measurement-framework.git"
+    "url": "git+https://github.com/mijohansen/measurement-framework.git"
   },
-  "author": "RED Performance <www.redperformance.no>",
+  "author": "Michael Johansen <michael.johansen@gmail.com>",
   "licenses": [
     {
       "type": "Apache-2.0",
@@ -43,9 +43,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/redperformance/red-measurement-framework/issues"
+    "url": "https://github.com/mijohansen/measurement-framework/issues"
   },
-  "homepage": "https://github.com/redperformance/red-measurement-framework#readme",
+  "homepage": "https://github.com/mijohansen/measurement-framework#readme",
   "ava": {
     "require": [
       "babel-register"
@@ -53,10 +53,5 @@
   },
   "bin": {
     "mfreg": "bin/register.js"
-  },
-  "directories": {
-    "lib": "lib",
-    "test": "test"
-  },
-  "license": "ISC"
+  }
 }
