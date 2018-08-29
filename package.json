@@ -11,7 +11,7 @@
     "js-cookie": "latest",
     "jsonp-es6": "latest",
     "lodash-es": "latest",
-    "measurement-framework": "^0.1.12"
+    "measurement-framework": "^0.1.13"
   },
   "devDependencies": {
     "rollup": "^0.56.5",
