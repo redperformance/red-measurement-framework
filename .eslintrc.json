@@ -20,7 +20,7 @@
       "error",
       {
         "allow": [
-          "log","warn"
+          "log","warn","table"
         ]
       }
     ]

@@ -1,18 +1,19 @@
-import resolve from "rollup-plugin-node-resolve"
-import commonjs from "rollup-plugin-commonjs"
-import babel from "rollup-plugin-babel"
-import uglify from "rollup-plugin-uglify"
-import {minify} from "uglify-es"
-import json from "rollup-plugin-json"
-import replace from "rollup-plugin-replace"
-import sizes from "rollup-plugin-sizes"
-import filesize from "rollup-plugin-filesize"
+const resolve = require("rollup-plugin-node-resolve")
+const commonjs = require("rollup-plugin-commonjs")
+const uglify = require("rollup-plugin-uglify")
+const UglifyJS = require("uglify-es")
+const json = require("rollup-plugin-json")
+const eslint = require("rollup-plugin-eslint")
+const replace = require("rollup-plugin-replace")
+const sizes = require("rollup-plugin-sizes")
+const filesize = require("rollup-plugin-filesize")
+const buble = require('rollup-plugin-buble')
 
 let production = function () {
     return !process.env.ROLLUP_WATCH
 }
 
-export default {
+module.exports = {
     input: 'src/measurement-framework.js',
     sourcemap: false,
     output: {
@@ -43,25 +44,20 @@ export default {
             customResolveOptions: {}
         }), // tells Rollup how to find date-fns in node_modules
         commonjs(), // converts date-fns to ES modules
-        production(),
-        babel({
-            exclude: [
-                //'node_modules/**',
-                '*.json'
-            ],
-            plugins: []
-        }),
+        production() && eslint({}),
+        buble(),
         production() && uglify({
             toplevel: true,
             ie8: true,
             sourceMap: false,
             mangle: true,
             compress: {
-                toplevel: true
+                toplevel: true,
+                drop_console: true
                 //reduce_vars: false
             }
-        }, minify), // minify, but only in production
-        sizes({}),
+        }, UglifyJS.minify), // minify, but only in production
+        sizes(),
         filesize()
     ]
 }
