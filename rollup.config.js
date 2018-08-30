@@ -3,7 +3,6 @@ const commonjs = require("rollup-plugin-commonjs")
 const uglify = require("rollup-plugin-uglify")
 const UglifyJS = require("uglify-es")
 const json = require("rollup-plugin-json")
-const eslint = require("rollup-plugin-eslint")
 const replace = require("rollup-plugin-replace")
 const sizes = require("rollup-plugin-sizes")
 const filesize = require("rollup-plugin-filesize")
@@ -44,7 +43,7 @@ module.exports = {
             customResolveOptions: {}
         }), // tells Rollup how to find date-fns in node_modules
         commonjs(), // converts date-fns to ES modules
-        production() && eslint({}),
+        production(),
         buble(),
         production() && uglify({
             toplevel: true,

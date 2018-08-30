@@ -1,6 +1,6 @@
 {
   "name": "measurement-framework",
-  "version": "0.1.10",
+  "version": "0.1.23",
   "description": "Collection of Javascript code to implement a browser based measurement system for websites. It uses a cookie to store a users action on a webpage and let you map thoose actions to a particular state in the user journey.",
   "main": "index.js",
   "module": "index.js",
@@ -12,12 +12,6 @@
     "lodash-es": "latest"
   },
   "devDependencies": {
-    "jasmine": "^3.1.0",
-    "karma": "^2.0.0",
-    "karma-chrome-launcher": "^2.2.0",
-    "karma-jasmine": "^1.1.1",
-    "karma-jquery": "^0.2.2",
-    "karma-rollup-preprocessor": "^5.1.1",
     "rollup": "^0.56.5",
     "rollup-plugin-buble": "^0.19.2",
     "rollup-plugin-commonjs": "^8.3.0",
