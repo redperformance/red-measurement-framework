@@ -26,19 +26,16 @@
     "rollup-watch": "^4.3.1",
     "uglify-es": "^3.3.10"
   },
-  "scripts": {
-    "test": "karma start --single-run"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mijohansen/measurement-framework.git"
+    "url": "https://github.com/redperformance/red-measurement-framework"
   },
-  "author": "Michael Johansen <michael.johansen@gmail.com>",
+  "author": "RED Performance <support@redperformance.no>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mijohansen/measurement-framework/issues"
+    "url": "https://github.com/redperformance/red-measurement-framework/issues"
   },
-  "homepage": "https://github.com/mijohansen/measurement-framework#readme",
+  "homepage": "https://github.com/redperformance/red-measurement-framework#readme",
   "bin": {
     "mfreg": "bin/register.js"
   }
