@@ -80,7 +80,7 @@ The next screenshots show how to add data sources. The first screenshot shows th
 
 The final screenshots show the last steps in adding data sources, the two data sources used at RED Dentsu X and the edit and remove options.
 
-![alt text](img/last step.png "Logo Title Text 1")
+![alt text](img/laststep.png "Logo Title Text 1")
 ![alt text](img/data_sources.png "Logo Title Text 1")
    
 ## Installation
