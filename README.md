@@ -91,14 +91,16 @@ A chronological list is provided below - explaining the installation of RMF:
 - Run ```npm install i measurement-framework```
 - Copy rollup.config.js to the root directory, from the measurement-framework folder placed within the node-modules folder.
 - From the measurement-framework folder placed within the node-modules foler, copy the devdependencies in the package.json file and paste in package.json file in the root directory. 
-- run ```npm install``` (installing devdependencies)
+- Run ```npm install``` (installing devdependencies)
+- To ensure you can execute the final step (```rollup -c```) in the installation, you'll have to make a src folder and create a file called measurement-framework.js, see the link provided below for further details.
+
+	[Measurement-framework example](https://github.com/redperformance/red-measurement-framework-example)
 
 #### Compressing the measurement-framework.js code for GTM
 Finally, to compress the measurement-framework.js file, run the following:
 
 
 - run ```rollup -c```
-
 
 Confirming the compression has been successful, look inside the dist folder.
 If the file is there, copy its contents and make a custom html tag in the desired GTM account.
