@@ -1,4 +1,4 @@
-![alt text](img/RMFrp.png "Logo Title Text 1")
+[![alt text](img/RMFrp.png "Logo Title Text 1")](https://redperformance.no/) 
 
 ## Outline
 
@@ -9,7 +9,6 @@ It's intentionally meant to integrate and work with the following:
 * Google Tag Manager (GTM) 
 * Google Analytics (GA)
 * Google Data Studio (GDS)
-* jQuery
 
 ## Integration visualised
 ![alt text](img/flowchart.png "Logo Title Text 1")
@@ -87,11 +86,11 @@ The final screenshots show the last steps in adding data sources, the two data s
 A chronological list is provided below - explaining the installation of RMF:
 
 - Make sure you have installed npm. 
-- Run ```npm init``` (to make a package.json file)
-- Run ```npm install i measurement-framework```
+- $ ```npm init``` (to make a package.json file)
+- $ ```npm install i measurement-framework```
 - Copy rollup.config.js to the root directory, from the measurement-framework folder placed within the node-modules folder.
 - From the measurement-framework folder placed within the node-modules foler, copy the devdependencies in the package.json file and paste in package.json file in the root directory. 
-- Run ```npm install``` (installing devdependencies)
+- $ ```npm install``` (installing devdependencies)
 - To ensure you can execute the final step (```rollup -c```) in the installation, you'll have to make a src folder and create a file called measurement-framework.js, see the link provided below for further details.
 
 	[Measurement-framework example](https://github.com/redperformance/red-measurement-framework-example)
@@ -100,7 +99,7 @@ A chronological list is provided below - explaining the installation of RMF:
 Finally, to compress the measurement-framework.js file, run the following:
 
 
-- run ```rollup -c```
+- $ ```rollup -c```
 
 Confirming the compression has been successful, look inside the dist folder.
 If the file is there, copy its contents and make a custom html tag in the desired GTM account.
@@ -112,7 +111,92 @@ In the custom html section, type the following:
 </script>
 ```
 
-Additionally, the trigger to be used in GTM is "All Pages".
+Additionally, the trigger to be used in GTM is "All Pages". Finally, pick and awesome name for your RMF tag.
+
+#### GTM and GA setup
+*GA setup*
+
+Unique Google Analytics (GA) variables are used in order for the script and GTM implementation to integrate properly with GA.
+
+- In measurement-framework.js ```clientIdSetter(<index_no>)``` must be set for each GA account.
+- In measurement-framework.js the userTrails section, must be modified in accordance to funnel-stage
+agreements.
+
+The following two screenshots exemplify the path you need to use in order to obtain the clientIdSetter value:
+
+![alt text](img/custom_dimensions.png)
+![alt text](img/client_id.png)
+
+When setting the client ID, you must also remember to set the following custom dimensions:
+
+- Raw user trail 
+- User funnel stage 
+- Event funnel stage
+- Triggering event
+
+*GTM setup*
+
+In GTM the following steps must be done in order for RMF to be implemented correctly.
+
+Variables to create:
+
+- **Custom Task Runner**
+	- Name : Custom Task Runner
+	- Variable Type : Data Layer Variable
+	- Data Layer Variable Name : customTaskRunner
+	- Data Layer Version : Version 2
+
+- **User Funnel Stage Changed**
+	- Name : User Funnel Stage Changed
+	- Variable Type : Data Layer Variable
+	- Data Layer Variable Name : funnelStageChanged
+	- Data Layer Version : Version 2	
+
+- **User Funnel Stage**
+	- Name : User Funnel Stage
+	- Variable Type : Data Layer Variable
+	- Data Layer Variable Name : funnelStage
+	- Data Layer Version : Version 2
+
+- **User Funnel Change Label**
+	- Name : User Funnel Change Label
+	- Variable Type : Data Layer Variable
+	- Data Layer Variable Name : funnelChangeLabel
+	- Data Layer Version : Version 2
+
+- **User Raw Trail**
+	- Name : User Raw Trail
+	- Variable Type : 1st Party Cookie
+	- Cookie Name : rmf
+
+- **Triggering Event**
+	- Name : Triggering Event
+	- Variable Type : Data Layer Variable
+	- Data Layer Variable Name : eventAction
+	- Data Layer Version : Version 2
+
+- **GA settings**
+	- The below screenshot documents the configuration:
+	![alt text](img/GAsettings.png)
+	
+
+Triggers to create:
+
+- **User Funnel Stage Changed**
+	- The below picture documents the configuration:
+	![alt text](img/Userfunnelstagechanged.png) 	
+
+Tags to create:
+
+- **GA - User Funnel Stage Changed**
+	- The below screenshot documents the configuration:
+	![alt text](img/UserFStageTag.png)
+
+- **GA - Debug User Funnel Stages**
+	- The below screenshot documents the configuration:
+	![alt text](img/Debug.png)
+
+For the above tags the User Funnel Stage Changed trigger, we just created, is to be used.
 
 ## Note on building with rollup
 Rollup and other javascript compilers do not support removing unused methods from classes. This is why the RMF is running several functions instead of importing a class to hold them. Internally, these use the MeasurementFramework class to hold state and to orchestrate between classes. This makes the package nice and tight.
@@ -120,4 +204,5 @@ Rollup and other javascript compilers do not support removing unused methods fro
 ## Honorable mention
 This work is heavily inspired by *Simo Ahava's* blog workings. Therefore we'd like to thank him for his continued interest in working with and utilizing the possibilities within Google Analytics and Google Tag Manager to propel data driven digital marketing forward.
 
-## ![alt text](img/RMF.png "Logo Title Text 1")
+## [![alt text](img/RMF.png "Logo Title Text 1")](https://redperformance.no/)
+
