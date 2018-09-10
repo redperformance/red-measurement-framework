@@ -61,13 +61,16 @@ As mentioned in the Outline section of this README, RMF is build to integrate an
 
 In GA it is important to follow best practice when setting up accounts, as this will impact how RMF data will migrate with GA. This cannot be stressed enough. The following link is a guideline for what a GA audit might consist of:
 
+
 [GA Audit Checklist](https://www.distilled.net/resources/google-analytics-audit-checklist/)
+[GA Audit Checklist] (https://www.distilled.net/resources/google-analytics-audit-checklist/)
 
 Having successfully migrated the RMF data in GA it's recommended to use GDS to visualise the collected data. A link is provided below in which a GDS template is shared in a view link. 
 
 Currently the below link is NOT including any data in its charts, albeit a future commit will follow, in which the link will be updated to include data.
 
 [GDS Template](https://datastudio.google.com/open/1UyxbaJ8fWvwnE5llwyv2Ad1NeJvlZx5C)
+[GDS Template] (https://datastudio.google.com/open/1UyxbaJ8fWvwnE5llwyv2Ad1NeJvlZx5C)
 
 The following screenshots show how data sources are added to or removed from the GDS report.  
 ![alt text](img/manage_data.png "Logo Title Text 1")
