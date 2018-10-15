@@ -67,13 +67,14 @@ Having successfully migrated the RMF data in GA it's recommended to use GDS to v
 
 Currently the below link is NOT including any data in its charts, albeit a future commit will follow, in which the link will be updated to include data.
 
-[GDS Template](https://datastudio.google.com/open/1UyxbaJ8fWvwnE5llwyv2Ad1NeJvlZx5C)
+[GDS Template](https://datastudio.google.com/open/1_hiGMiysxYtsNz7JN0UO7kQGkWBzdnA2)
 
 The following screenshots show how data sources are added to or removed from the GDS report.  
 ![alt text](img/manage_data.png "Logo Title Text 1")
 ![alt text](img/manag_data.png "Logo Title Text 1")
 
 The next screenshots show how to add data sources. The first screenshot shows the first step in adding data to the GDS report. Choosing a data source, plain and simple, albeit to configure GDS to work optimally, you must either choose a dimension or add another "temporary" data source, then delete it, as shown in the second screenshot, because then you can save your added data source.
+
 ![alt text](img/config_data.png "Logo Title Text 1")
 ![alt text](img/add_data.png "Logo Title Text 1")
 
@@ -184,9 +185,55 @@ Triggers to create:
 
 - **User Funnel Stage Changed**
 	- The below picture documents the configuration:
-	![alt text](img/Userfunnelstagechanged.png) 	
+	![alt text](img/Userfunnelstagechanged.png)
+	
+	
+- **RMF Timer**
+	- The below picture documents the configuration:
+	 ![alt text](img/RMF_timertrigger.png)
 
 Tags to create:
+
+- **GA - RMF Timer**
+	- The below screenshot and code snippt documents the 	configuration:
+	![alt text](img/RMF_timertag.png) 
+
+	- the content of the HTML in the Custom HTML Tag: 
+
+```
+<script>
+(function() {
+    // CHANGE THESE THREE:
+    var eventName = 'RMF sequence'; // The event name that is pushed into dataLayer
+    var interval = 1500; // The interval in milliseconds
+    var limit = 1; // The number of times the timer fires
+
+    // OTHER SETTINGS:
+    var timerNumber = 1;
+    var startTime = new Date().getTime();
+
+    var fireTimer = function() {
+      var timeNow = new Date().getTime();
+      window.dataLayer.push({
+        'event' : eventName,
+        'custom.timerCurrentTime' : timeNow,
+        'custom.timerElapsedTime' : timeNow - startTime,
+        'custom.timerStartTime' : startTime,
+        'custom.timerEventNumber' : timerNumber,
+        'custom.timerId' : timerId,
+        'custom.timerInterval' : interval,
+        'custom.timerLimit' : limit
+      });
+      timerNumber += 1;
+      if (limit < timerNumber) { 
+        window.clearInterval(timerId);
+      }
+    };
+
+    var timerId = window.setInterval(fireTimer, interval);
+  })();
+</script>
+```
 
 - **GA - User Funnel Stage Changed**
 	- The below screenshot documents the configuration:
@@ -205,4 +252,3 @@ Rollup and other javascript compilers do not support removing unused methods fro
 This work is heavily inspired by *Simo Ahava's* blog workings. Therefore we'd like to thank him for his continued interest in working with and utilizing the possibilities within Google Analytics and Google Tag Manager to propel data driven digital marketing forward.
 
 ## [![alt text](img/RMF.png "Logo Title Text 1")](https://redperformance.no/)
-
