@@ -205,3 +205,4 @@ Rollup and other javascript compilers do not support removing unused methods fro
 This work is heavily inspired by *Simo Ahava's* blog workings. Therefore we'd like to thank him for his continued interest in working with and utilizing the possibilities within Google Analytics and Google Tag Manager to propel data driven digital marketing forward.
 
 ## [![alt text](img/RMF.png "Logo Title Text 1")](https://redperformance.no/)
+
